@@ -9,13 +9,14 @@
 /*   Func Argument - to define action for matching  */
 /****************************************************/
 #define ARGUMENT_FOR_MATCH \
-                        void (*Match)(unsigned char *, uint32_t *, uint32_t)
+    void (*Match)(unsigned char *, uint32_t *, uint32_t),  \
+  DFC_PATTERN * mlist
 
 #define SEARCH_ARGUMENT \
                         DFC_STRUCTURE *dfc, \
                         unsigned char *buf, \
-                        int buflen, \
-                        ARGUMENT_FOR_MATCH
+                        int buflen \
+			,ARGUMENT_FOR_MATCH
 
 #define PROGRE_ARGUMENT \
                         DFC_STRUCTURE *dfc, \
@@ -35,10 +36,10 @@
                         const unsigned char *starting_point
 
 #define PROGRE_PARAMETER \
-                        dfc, &buf[i+2], matches, index, mask, Match, buf, buflen-i
+                        dfc, &buf[i+2], matches , index, mask, Match, mlist,(const unsigned char *)buf, buflen-i 
 
 #define VERIFI_PARAMETER \
-                        dfc, buf, matches, Match, starting_point
+                        dfc, buf, matches , Match, mlist,(const unsigned char *)starting_point 
 
 #define ACTION_FOR_MATCH \
         Match(mlist->casepatrn, mlist->sids, mlist->sids_size); \

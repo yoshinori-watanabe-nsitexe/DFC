@@ -135,13 +135,17 @@ createStrings()
 		
 }
 /*-------------------------------------------------------------------------------------*/
-static int
-dfc_rule_match()
-{
-		/* Do nothing */
-		return 0;
-}
+/* static int */
+/* dfc_rule_match() */
+/* { */
+/* 		/\* Do nothing *\/ */
+/* 		return 0; */
+/* } */
 /*-------------------------------------------------------------------------------------*/
+void dfc_rule_match(unsigned char *a, uint32_t *buf, uint32_t len){
+
+}
+
 int
 main (int argc, char **argv)
 {
@@ -190,8 +194,9 @@ main (int argc, char **argv)
 				if (id < num_patterns) {
 						DFC_AddPattern(dfc, (unsigned char *)content_start,
 									   len, 1 /* case-sensitive pattern */,
-									   id /* ID used in Snort */,
-									   0 /* internal ID */);
+									   id /* ID used in Snort */
+							       );
+						//	   0 /* internal ID */);
 				} else
 						break;
 				id++;
@@ -224,8 +229,8 @@ main (int argc, char **argv)
 				tcph = (struct tcphdr *)((unsigned char *)ip + (ip->ihl<<2));
 
 				DFC_Search(dfc, packets[rand1] + 54,
-						   ip->tot_len - (ip->ihl<<2) - (tcph->doff<<2),
-						   dfc_rule_match, NULL);
+					   ip->tot_len - (ip->ihl<<2) - (tcph->doff<<2),
+									   dfc_rule_match, NULL);
 #if 0
 				fprintf(stderr, "Packet length is: %u\n", ip->tot_len);
 #endif
