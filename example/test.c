@@ -41,7 +41,7 @@ int main(void){
 
     // 4. [DFC] Search
     printf("* Result:\n");
-    int res = DFC_Search(dfc, (unsigned char*)buf, strlen(buf), Print_Result);
+    int res = DFC_Search(dfc, (unsigned char*)buf, strlen(buf), Print_Result,NULL);
     printf("\n* Total match count: %d\n", res);
 
     // 5. [DFC] Free DFC structure
