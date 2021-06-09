@@ -12,3 +12,15 @@ Byungkwon Choi, JongWook Chae, Muhammad Jamshed, KyoungSoo Park, and Dongsu Han,
 
 # Contact
 Byungkwon Choi (nfsp3k at gmail.com , http://ina.kaist.ac.kr/~brad)
+
+# How to Run
+
+```
+cd src
+make
+```
+
+```
+cd example
+make
+```
